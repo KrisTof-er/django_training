@@ -1,14 +1,11 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Thanks page</title>
-</head>
-<body>
+{% extends 'base.html' %}
+
+{% block title %}Thanks page{% endblock %}
+
+{% block content %}
 <h2>Thanks for sending!</h2>
 <p>{{ name }} - {{ phone }}</p>
 <a href="/">
     <button>All orders</button>
 </a>
-</body>
-</html>
+{% endblock %}
