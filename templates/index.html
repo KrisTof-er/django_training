@@ -1,39 +1,40 @@
 {% extends 'base.html' %}
-
 {% load static %}
+{% block index %}
 
-{% block content %}
-<img src="{% static 'img/python_logo.svg' %}" width="500px">
+<!-- Carrousel -->
+{% include 'carrousel.html' %}
 
-<h2>Orders:</h2>
-{% if object_list %}
-<table border="1">
-    <tr>
-        <td>Id</td>
-        <td>Name</td>
-        <td>Phone</td>
-        <td>Date</td>
-    </tr>
-    {% for object in object_list %}
-    <tr>
-        <td>{{ object.id }}</td>
-        <td>{{ object.order_name }}</td>
-        <td>{{ object.order_phone }}</td>
-        <td>{{ object.order_dt }}</td>
-    </tr>
-    {% endfor %}
-</table>
-{% else %}
-<h1>None</h1>
-{% endif %}
-<br>
+<!-- Price cards & table -->
+{% include 'price.html' %}
 
-<form action="{% url 'thanks_page' %}" method="post">
-    {% csrf_token %}
-    <!--<label>Name: <input name="name"></label>-->
-    <!--<label>Phone: <input name="phone"></label>-->
-    {{ form.as_p }}
-    <button type="submit">SEND</button>
-</form>
-
+<!-- Form -->
+<section>
+    <div class="container class_form">
+        <h1 class="text-3">Place an Order and Receive a Service</h1>
+        <div class="row justify-content-center">
+            <form action="" method="" style="width: 50%;">
+                <div class="form-group row">
+                    <label for="inputEmail3" class="col-sm-2 col-form-label">
+                        Name<br>
+                        <input type="text" class="form-control" name="name">
+                    </label>
+                    <div class="">
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label for="inputEmail3" class="col-sm-2 col-form-label">
+                        Phone<br>
+                        <input type="text" class="form-control" name="phone">
+                    </label>
+                    <div class="">
+                    </div>
+                </div>
+                <div style="float: right;" class="form-group row">
+                    <button type="submit" class="btn btn-success">Place an Order</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</section>
 {% endblock %}

@@ -1,11 +1,10 @@
 {% extends 'base.html' %}
+{% load static %}
 
-{% block title %}Thanks page{% endblock %}
-
-{% block content %}
-<h2>Thanks for sending!</h2>
-<p>{{ name }} - {{ phone }}</p>
-<a href="/">
-    <button>All orders</button>
-</a>
+{% block thanks %}
+<section>
+    <div class="container">
+        <CENTER style='margin-top: 35%; margin-bottom: 35%;'><h1>Спасибо за заявку!</h1></CENTER>
+    </div>
+</section>
 {% endblock %}
