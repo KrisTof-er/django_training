@@ -3,11 +3,11 @@
     <div id="carouselExampleCaptions" class="carousel slide container" data-ride="carousel">
         <div class="carousel-inner">
             {% for slide in slider_list %}
-            <div class="carousel-item active">
+            <div class="carousel-item {% if slide.cms_css %}active{% endif %}">
                 <img src="{{ slide.cms_img.url }}" class="d-block w-100" alt="First slide image">
                 <div class="carousel-caption d-none d-md-block">
-                    <h5 class="slaider_h">{{ slide.cms_title }}</h5>
-                    <p class="slaider_p">{{ slide.cms_text }}</p>
+                    <h5 class="slider_h">{{ slide.cms_title }}</h5>
+                    <p class="slider_p">{{ slide.cms_text }}</p>
                 </div>
             </div>
             {% endfor %}
