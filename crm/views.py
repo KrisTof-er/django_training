@@ -3,7 +3,7 @@ from .models import Order
 from .forms import OrderForm
 from cms.models import CmsSlider
 from price.models import PriceCard, PriceTable
-
+from telebot.send_message import send_telegram_message
 
 def first_page(request):
     slider_list = CmsSlider.objects.all()
@@ -28,6 +28,7 @@ def thanks_page(request):
     phone = request.POST['phone']
     new_order = Order(order_name=name, order_phone=phone)
     new_order.save()
+    send_telegram_message(tg_name=name, tg_phone=phone)
     return render(request, './thanks_page.html', {
         'name': name,
     })
