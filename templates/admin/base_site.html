@@ -1,0 +1,66 @@
+{% extends "admin/base.html" %}
+{% load static %}
+<link href="{% static 'external.css' %}" rel="stylesheet">
+
+
+{% block title %}
+    {% if subtitle %}{{ subtitle }} | {% endif %}{{ title }} |
+    {{ site_title|default:_('Django site admin') }}
+{% endblock %}
+
+{% block extrastyle %}
+    <style>
+        body {
+            background-color: lightgray;
+        }
+
+        h1 {
+            color: #000000;
+        }
+
+        #header {
+            background-color: royalblue;
+        }
+
+        #branding {
+            width: 95%;
+        }
+
+        .logo-top {
+            font-size: 30px;
+            display: inline-flex;
+            text-align: center;
+            justify-content: space-between;
+            width: 220px;
+        }
+
+        #branding {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .actions label {
+            padding-left: 15px;
+        }
+
+        fieldset.module.aligned {
+            margin-bottom: 10px;
+        }
+
+        .paginator {
+            width: 525px;
+        }
+    </style>
+{% endblock %}
+
+{% block branding %}
+    <a class="logo-top" href="/">
+        <img src="{% static 'img/Logo.png' %}" width="40" height="40" class="d-inline-block align-top" alt=""
+            loading="lazy">
+        <span>Brand Name</span>
+    </a>
+
+    <h1 id="site-name"><a href="{% url 'admin:index' %}">{{ site_header|default:_('Django administration') }}</a></h1>
+{% endblock %}
+
+{% block nav-global %}{% endblock %}
