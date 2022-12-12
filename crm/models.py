@@ -13,7 +13,7 @@ class StatusCRM(models.Model):
 
 
 class Order(models.Model):
-    order_dt = models.DateTimeField(auto_now=True, verbose_name='Date')
+    order_date = models.DateTimeField(auto_now=True, verbose_name='Date')
     order_name = models.CharField(max_length=200, verbose_name='Name')
     order_phone = models.CharField(max_length=200, verbose_name='Phone')
     order_status = models.ForeignKey(
