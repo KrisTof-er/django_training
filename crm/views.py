@@ -5,6 +5,7 @@ from cms.models import CmsSlider
 from price.models import PriceCard, PriceTable
 from telebot.send_message import send_telegram_message
 
+
 def first_page(request):
     slider_list = CmsSlider.objects.all()
     pc_1 = PriceCard.objects.get(pk=1)
@@ -24,6 +25,9 @@ def first_page(request):
 
 
 def thanks_page(request):
+    if not request.POST:
+        return render(request, './thanks_page.html')
+
     name = request.POST['name']
     phone = request.POST['phone']
     new_order = Order(order_name=name, order_phone=phone)
